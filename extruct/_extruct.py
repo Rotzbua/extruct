@@ -74,7 +74,7 @@ def extract(
             if errors == "ignore":
                 return {}
             if errors == "log":
-                logger.exception("Failed to parse html, raises {}".format(e))
+                logger.exception(f"Failed to parse html, raises {e}")
                 return {}
             if errors == "strict":
                 raise
@@ -131,7 +131,7 @@ def extract(
             output[syntax] = list(extract(document, base_url=base_url))
         except Exception as e:
             if errors == "log":
-                logger.exception("Failed to extract {}, raises {}".format(syntax, e))
+                logger.exception(f"Failed to extract {syntax}, raises {e}")
             if errors == "ignore":
                 pass
             if errors == "strict":
